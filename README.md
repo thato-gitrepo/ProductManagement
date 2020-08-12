@@ -1,4 +1,10 @@
 # ProductManagement
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+This is an application built to demonstrate basic Angular functionality
+=======
+>>>>>>> 982369335315a839acb2802ece8b272ba6913b29
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
 
@@ -25,3 +31,7 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<<<<<<< HEAD
+=======
+>>>>>>> 2a67475... Commit of base project
+>>>>>>> 982369335315a839acb2802ece8b272ba6913b29
