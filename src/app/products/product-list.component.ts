@@ -1,23 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import {IProduct} from './product';
 
 @Component({
   selector:'pm-products',
-  templateUrl: './product-list.component.html'
+  templateUrl: './product-list.component.html',
+  styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit
+{
   pageTitle:string = 'Product List';
   showImage: boolean = false;
-  listFilter: string = 'cart';
-  products:any = [
+
+  private _listFilter: string;
+
+  get listFilter(): string{
+    return this._listFilter;
+  }
+  
+  set listFilter(value:string){
+    
+    this._listFilter=value;
+
+    this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter):this.products;
+  }
+
+  filteredProducts: IProduct[];
+
+  products: IProduct[] = [
     {
       "productId": 1,
-      "productName": "Leaf Rake",
+      "productName": "Garden Cart",
       "productCode": "GDN-0011",
       "releaseDate": "March 19, 2019",
       "description": "Leaf rake with 48-inch wooden handle.",
-      "price": 19.95,
+      "price": 44.22,
       "starRating": 3.2,
-      "imageUrl": "assets/images/leaf_rake.png"
+      "imageUrl": "assets/images/leaf_rake.png",
+      showProduct():boolean{
+        return true;    
+      }
     },
     {
       "productId": 2,
@@ -59,9 +80,25 @@ export class ProductListComponent {
       "starRating": 4.6,
       "imageUrl": "assets/images/xbox-controller.png"
     }
-  ]
+ ]
 
+ constructor(){
+   this.filteredProducts = this.products;
+   this.listFilter = 'cart';
+ }
+
+ ngOnInit(): void {
+  console.log('init');
+}
   toggleImage():void{
     this.showImage = !this.showImage;
-  } 
+  }
+  
+  performFilter(filterBy:string):IProduct[]{
+
+    filterBy = filterBy.toLocaleLowerCase();
+    
+    return this.products.filter((product:IProduct) =>
+      product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
 }
