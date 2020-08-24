@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  selector: 'pm-root',
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'Product Management';
+  pageTitle = 'Tshimolong Product Management';
 }
