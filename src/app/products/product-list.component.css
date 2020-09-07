@@ -1,3 +1,214 @@
-thead{
-    color: #337AB7
+.card-header {
+    background-color: white;
 }
+
+tr:hover {
+    background-color: #D3D3D3;
+}
+
+h6, p {
+    color: #000;
+}
+
+p {
+    font-size: 17px;
+}
+
+.icon-md {
+    font-size: 1.8rem;
+}
+
+/* Search bar */
+.search {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    width: 35px;
+    margin: auto;
+    bottom: 10px;
+    height: 35px;
+    position: absolute;
+    border-radius: 50%;
+    transition: all 1s;
+    padding-bottom: 1px;
+    background: #5cb85c;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+
+.search:hover {
+    cursor: pointer;
+}
+
+/* Search diagonal bar */
+.search::before {
+    right: 0;
+    bottom: 0;
+    top: 12px;
+    left: 14px;
+    content: "";
+    width: 12px;
+    height: 2px;
+    margin: auto;
+    position: absolute;
+    background: white;
+    transition: all .5s;
+    transform: rotate(44deg);
+}
+
+/* Search bar circle */
+.search::after {
+    right: 0;
+    top: -7px;
+    bottom: 0;
+    left: -5px;
+    width: 15px;
+    content: "";
+    height: 15px;
+    margin: auto;
+    position: absolute;
+    border-radius: 50%;
+    transition: all .5s;
+    border: 2px solid white;
+}
+
+input {
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    z-index: 5;
+    width: 15px;
+    margin: auto;
+    bottom: 10px;
+    height: 25px;
+    border: none;
+    outline: none;
+    color: white;
+    position: absolute;
+    transition: all 1s;
+    border-radius: 30px;
+    background: #5cb85c;
+    letter-spacing: 0.1em;
+    padding: 0 80px 0 20px;
+    text-shadow: 0 0 10px #5cb85c;
+    box-shadow: 0 0 25px 0 #5cb85c, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+}
+
+input:hover {
+    cursor: pointer;
+}
+
+input:focus {
+    width: 300px;
+    opacity: 1;
+    cursor: text;
+}
+    
+input:focus ~ .search {
+    z-index: 6;
+    width: 45px;
+    height: 45px;
+    right: -270px;
+    background: #151515;
+}
+    
+input::before {
+    top: 0;
+    left: 0;
+    width: 25px;
+}
+
+input::after {
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 5px;
+    border: none;
+    border-radius: 0%;
+    background: white;
+    transform: rotate(-45deg);
+}
+
+input::placeholder {
+    opacity: 0.5;
+    color: white;
+    font-weight: bolder;
+}
+
+/* table  */
+th {
+	color: #fff;
+    font-weight: bold;
+	padding: 10px 15px;
+	position: relative;
+	text-shadow: 0 1px 0 #000;	
+	border-top: 1px solid #555;
+	border-left: 1px solid #555;
+	border-right: 1px solid #777;
+	border-bottom: 1px solid #333;
+	box-shadow: inset 0 1px 0 #999;
+	background: url(https://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);
+}
+
+td {
+	padding: 10px 15px;
+	position: relative;
+	transition: all 300ms;
+	border-top: 1px solid #fff;
+	border-right: 1px solid #fff;
+	border-left: 1px solid #e8e8e8;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+td:first-child {
+	box-shadow: inset 1px 0 0 #fff;
+}	
+
+td:last-child {
+	border-right: 1px solid #e8e8e8;
+	box-shadow: inset -1px 0 0 #fff;
+}
+
+tr:last-of-type td {
+	box-shadow: inset 0 -1px 0 #fff; 
+}
+
+tr:last-of-type td:first-child {
+	box-shadow: inset 1px -1px 0 #fff;
+}	
+
+tr:last-of-type td:last-child {
+	box-shadow: inset -1px -1px 0 #fff;
+}	
+
+tbody:hover td {
+	color: transparent;
+	text-shadow: 0 0 3px #aaa;
+}
+
+tbody:hover tr:hover td {
+	color: #444;
+	text-shadow: 0 1px 0 #fff;
+}
+
+h2 {
+    padding-top: 50px;
+    font-family: Roboto, "Helvetica Neue", sans-serif;;
+}
+
+/* hr {
+    width: 25%;
+}
+
+.productImageWrapper {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+}
+
+.productWrapper::after {
+    content: "";
+    clear: both;
+    display: flex;
+} */

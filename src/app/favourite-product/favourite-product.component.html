@@ -1,0 +1,15 @@
+<div class='container'>
+    <div class='productWrapper'>
+        <div class='text-center'>
+            <h2>Here are a few of our favourite things!</h2>
+            <hr>
+        </div>
+        
+        <div class='container'>
+            <div class='productImageWrapper text-center' *ngFor='let product of productList'>
+                <img [src]='product.imageUrl'>
+                <div class="overlay"></div>
+            </div>
+        </div>
+    </div>
+</div>

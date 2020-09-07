@@ -1,16 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { ProductListComponent} from './products/product-list.component';
-import { ConvertToSpacesPipe} from './shared/convert-to-spaces.pipe';
+import { MaterialModule } from './material.module';
 import { StarComponent} from './shared/star.component';
-import { ProductDetailComponent } from './products/product-detail.component';
-import { WelcomeComponent } from './home/welcome.component';
-import { ProductDetailGuard } from './products/product-detail.guard';
+import { ProductListComponent} from './products/product-list.component';
+import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MenuComponent } from './menu/menu.component';
+import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FavouriteProductComponent } from './favourite-product/favourite-product.component';
 
 @NgModule({
   declarations: [
@@ -18,21 +23,20 @@ import { ProductDetailGuard } from './products/product-detail.guard';
     ProductListComponent,
     ConvertToSpacesPipe,
     StarComponent,
-    ProductDetailComponent,
-    WelcomeComponent
+    MenuComponent,
+    AboutComponent,
+    ContactComponent,
+    FooterComponent,
+    FavouriteProductComponent,
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    RouterModule,
     FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot([
-      { path: 'products', component: ProductListComponent },
-      { path: 'products/:id', 
-      canActivate: [ProductDetailGuard],component: ProductDetailComponent },
-      { path: 'welcome', component: WelcomeComponent},
-      { path: '', redirectTo: 'welcome', pathMatch: 'full'},
-      { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
-    ])
+    BrowserAnimationsModule,
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

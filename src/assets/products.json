@@ -1,0 +1,62 @@
+[
+  {
+    "productId": 7,
+    "productName": "Adidas NMD",
+    "productCode": "ANMD-0011",
+    "releaseDate": "March 19, 2019",
+    "description": "Adidas NMD",
+    "price": 1900.95,
+    "starRating": 4.2,
+    "imageUrl": "assets/images/items/adidasnmd.jpg"
+  },
+  {
+    "productId": 8,
+    "productName": "K-Way Men's Drake '18 Down Jacket",
+    "productCode": "KMD-0023",
+    "releaseDate": "March 18, 2019",
+    "description": "...",
+    "price": 1499.99,
+    "starRating": 4.2,
+    "imageUrl": "assets/images/items/puffer-jacket.jpg"
+  },
+  {
+    "productId": 9,
+    "productName": "PU Ladies Hand Bag",
+    "productCode": "PLH-0048",
+    "releaseDate": "May 21, 2019",
+    "description": "...",
+    "price": 649.99,
+    "starRating": 2.9,
+    "imageUrl": "assets/images/items/pu-bag.jpg"
+  },
+  {
+    "productId": 10,
+    "productName": "Fashion Mandarin Collar Jacket",
+    "productCode": "FMCJ-0022",
+    "releaseDate": "May 15, 2019",
+    "description": "...",
+    "price": 700.00,
+    "starRating": 4.2,
+    "imageUrl": "assets/images/items/mand-collar-jacket.jpg"
+  },
+  {
+    "productId": 11,
+    "productName": "Double Zip Chain Strap Crossbody Bag",
+    "productCode": "DZCS-0042",
+    "releaseDate": "October 15, 2018",
+    "description": "...",
+    "price": 499.95,
+    "starRating": 3.4,
+    "imageUrl": "assets/images/items/Double-Zip-Chain-Strap-Crossbody-Bag.jpg"
+  },
+  {
+    "productId": 12,
+    "productName": "Women's Pacer Next Cage Sneaker",
+    "productCode": "WPS-0042",
+    "releaseDate": "October 15, 2018",
+    "description": "...",
+    "price": 1499.99,
+    "starRating": 3.8,
+    "imageUrl": "assets/images/items/PacerSneaker.jpg"
+  }
+]

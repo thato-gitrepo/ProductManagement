@@ -1,33 +1,72 @@
-<div class='card'>
-
+<div>
   <div class='card-header'>
-    {{pageTitle}}
-  </div>
-  
-  <div class='card-body'>
+    <!-- {{pageTitle}} -->
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-4 grid-margin'>
+          <div class='card- payments d-flex align-items-center'>
+            <div class='card-body'>
+              <div class='d-flex flex-row align-items-center'><i class='fa fa-credit-card text-black icon-md'></i>
+                <div class='ml-3'>
+                  <h6 class='mb-0'>FLEXIBLE PAYMENTS</h6>
+                  <p class='card-text'>PayPal and MasterCard.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div class='col-md-4 grid-margin'>
+          <div class='card- shipping d-flex align-items-center'>
+            <div class='card-body'>
+              <div class='d-flex flex-row align-items-center'><i class='fa fa-truck text-black icon-md'></i>
+                <div class='ml-3'>
+                  <h6 class='mb-0'>FREE SHIPPING</h6>
+                  <p class='card-text'>On all domestic orders over R300.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class='col-md-4 grid-margin'>
+          <div class='card- inclusive-size d-flex align-items-center'>
+            <div class='card-body'>
+              <div class='d-flex flex-row align-items-center'><img width='30' height='30'
+                  src='../assets/images/tape.png' style='padding-top: 1px;'>
+                <div class='ml-3'>
+                  <h6 class='mb-0'>INCLUSIVE SIZE RANGE</h6>
+                  <p class='card-text'>Size ranging from S - L.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='card-body'>
     <div class='row'>
-      <div class='col-md-2'>Filter by:</div>
-      <div class='col-md-4'>
-        <input type='text'
-        [(ngModel)]='listFilter' />
+      <div class='col-md-2'>Search product:</div>
+      <div class='col-md-3'>
+        <input type='text' [(ngModel)]='searchProduct' (input)='Search()' placeholder='What are you looking for?'>
+        <div class='search'></div>
       </div>
     </div>
 
-    <div class="row">
+    <!-- <div class='row'>
       <div class='col-md-6'>
         <h4>Filtered by: {{listFilter}} </h4>
       </div>
-    </div>
-  
+    </div> -->
+
     <div class='table-responsive'>
-      <table class='table'
-             *ngIf='products && products.length>0'>
+      <table class='table'>
         <thead>
           <tr>
             <th>
-              <button class='btn btn-primary'
-              (click)= 'toggleImage()'>
+              <button class='btn btn-primary btn-success btn-sm' (click)='toggleImage()'>
                 {{showImage?'Hide':'Show'}} Image
               </button>
             </th>
@@ -38,28 +77,27 @@
             <th>5 Star Rating</th>
           </tr>
         </thead>
+
         <tbody>
-          <tr *ngFor='let product of filteredProducts'>
+          <tr *ngFor='let product of products'>
             <td>
-              <img *ngIf='showImage'
-                  [src]='product.imageUrl'
-                   [title]='product.productName | uppercase'
-                   width='50'
-                   height='50'>
+              <img *ngIf='showImage' [src]='product.imageUrl' [title]='product.productName | uppercase' width='45'
+                height='45'>
             </td>
-            <td>
-              <a [routerLink]="['/products',product.productId]">{{ product.productName }}</a> 
-            </td>
-            <td>{{ product.productCode | lowercase |convertToSpaces: '-'}}</td>
+            <td>{{ product.productName }}</td>
+            <td>{{ product.productCode | uppercase | convertToSpaces: '-'}}</td>
             <td>{{ product.releaseDate }}</td>
             <td>{{ product.price | currency:'ZAR' : 'symbol-narrow':'1.2-2' }}</td>
             <td>
-              <pm-star [rating]='product.starRating'
-              (ratingClicked)='onRatingClicked($event)'></pm-star>
+              <pm-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event)'></pm-star>
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <div class='container'>
+      <div app-favourite-product></div>
     </div>
   </div>
 </div>

@@ -1,0 +1,25 @@
+hr {
+    width: 25%;
+}
+
+.productWrapper {
+    padding-top: 50px;
+}
+
+.productImageWrapper {
+    float: left;
+    width: 33.33%;
+    padding: 25px;
+}
+
+.productImageWrapper img {
+    width: 90%;
+    height: 250px;
+    padding-bottom: 30px;
+}
+
+.productWrapper::after {
+    content: "";
+    clear: both;
+    display: table;
+}

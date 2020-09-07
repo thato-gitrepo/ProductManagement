@@ -1,62 +1,45 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {IProduct} from './product';
-import {ProductService} from './product.service';
+import { IProduct } from './product';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-   templateUrl: './product-list.component.html',
+  selector:'pm-products',
+  templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
+
 export class ProductListComponent implements OnInit
-{
+{  
   pageTitle:string = 'Product List';
   showImage: boolean = false;
-  errorMessage: string;
 
-  private _listFilter: string;
+  products: object;
 
-  get listFilter(): string{
-    return this._listFilter;
-  }
-  
-  set listFilter(value:string){
-    
-    this._listFilter=value;
+  searchProduct: string;
 
-    this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter):this.products;
-  }
+ constructor(private http: HttpClient){
 
-  filteredProducts: IProduct[];
-
-  products: IProduct[];
-
- constructor(private productService: ProductService){
-  
  }
-
- onRatingClicked(message:string): void{
-   this.pageTitle = message;
- }
-
- ngOnInit(): void {
-  this.productService.getProducts().subscribe({
-    next: products => {
-      this.products = products;
-      this.filteredProducts = this.products;
-    },
-    error: err => this.errorMessage = err
-  });
   
-
-}
   toggleImage():void{
     this.showImage = !this.showImage;
   }
-  
-  performFilter(filterBy:string):IProduct[]{
 
-    filterBy = filterBy.toLocaleLowerCase();
-    
-    return this.products.filter((product:IProduct) =>
-      product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  Search() {
+    if (this.searchProduct !== '') {
+      //@ts-ignore
+      this.products = this.products.filter(results => {
+        return results.productName.toLowerCase().includes(this.searchProduct);
+      });
+    }
+    else if (!this.searchProduct) {
+      this.ngOnInit();
+    }
+  }
+
+  ngOnInit(): void {
+    this.http.get<object>('../assets/products.json').subscribe(data => {
+      this.products = data;
+    });
   }
 }
